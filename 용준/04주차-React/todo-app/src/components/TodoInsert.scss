@@ -16,6 +16,17 @@
     // 버튼을 제외한 모든 영역 차지하기
     flex: 1;
   }
+  select {
+    display: flex;
+    background: none;
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    line-height: 1.5;
+    color: white;
+    align-items: center;
+    font-size: 1.125rem;
+  }
   button {
     // 기본 스타일 초기화
     background: none;

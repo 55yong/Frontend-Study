@@ -18,6 +18,9 @@
       margin-left: 0.5rem;
       flex: 1; // 차지할 수 있는 모든 영역 차지
     }
+    .category {
+      margin-right: 1.5rem;
+    }
     // 체크되었을 때 보여 줄 스타일
     &.checked {
       svg {
@@ -29,6 +32,7 @@
       }
     }
   }
+
   .remove {
     display: flex;
     align-items: center;
