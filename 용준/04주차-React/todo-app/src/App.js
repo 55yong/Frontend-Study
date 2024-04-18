@@ -16,7 +16,7 @@ const App = () => {
       checked: true,
     },
     {
-      id: 1,
+      id: 3,
       text: '일정 관리 앱 만들어 보기',
       checked: false,
     },
@@ -43,10 +43,21 @@ const App = () => {
     [todos],
   );
 
+  const onToggle = useCallback(
+    (id) => {
+      setTodos(
+        todos.map((todo) =>
+          todo.id === id ? { ...todo, checked: !todo.checked } : todo,
+        ),
+      );
+    },
+    [todos],
+  );
+
   return (
     <TodoTemplate>
       <TodoInsert onInsert={onInsert} />
-      <TodoList todos={todos} onRemove={onRemove} />
+      <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
     </TodoTemplate>
   );
 };
