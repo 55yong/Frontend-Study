@@ -22,13 +22,13 @@ const TodoList = ({ todos, onRemove, onToggle }) => {
   return (
     <List
       className="TodoList"
-      width={512}
-      height={513}
-      rowCount={todos.length}
-      rowHeight={57}
-      rowRenderer={rowRenderer}
-      list={todos}
-      style={{ outline: 'none' }}
+      width={512} // 전체 크기
+      height={513} // 전체 높이
+      rowCount={todos.length} // 항목 개수
+      rowHeight={57} // 항목 높이
+      rowRenderer={rowRenderer} // 항목을 렌더링할 때 쓰는 함수
+      list={todos} // 배열
+      style={{ outline: 'none' }} // List에 기본 적용되는 outline 스타일 제거
     />
   );
 };
