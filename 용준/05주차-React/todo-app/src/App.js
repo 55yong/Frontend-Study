@@ -3,8 +3,21 @@ import TodoTemplate from './components/TodoTemplate';
 import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
 
+function createBulkTodos() {
+  const array = [];
+  for (let i = 1; i <= 2500; i++) {
+    array.push({
+      id: i,
+      text: `할 일 ${i}`,
+      category: '[개인]',
+      checked: false,
+    });
+  }
+  return array;
+}
+
 const App = () => {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(createBulkTodos);
 
   const [categories] = useState([
     { key: 'private', title: '[개인]' },
@@ -14,7 +27,7 @@ const App = () => {
 
   // 고유값으로 사용될 id
   // ref를 사용하여 변수 담기
-  const nextTodoId = useRef(1);
+  const nextTodoId = useRef(2501);
 
   const onInsert = useCallback((text, category) => {
     const todo = {
