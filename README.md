@@ -2,7 +2,7 @@
 멋쟁이사자처럼 12기 프론트엔드 스터디 (20240325 ~ )
                 
 ## 참여 인원 
-| [홍가영](https://github.com/kaouo) | [오용준](https://github.com/55yong) | [이승헌](https://github.com/12seungheon) |
+| [홍가영](https://github.com/kaouo) | [오용준<스터디장>](https://github.com/55yong) | [이승헌](https://github.com/12seungheon) |
 |----|----|----|
 | <img src="https://avatars.githubusercontent.com/u/144293040?v=4" alt="이미지" width="100" height="100"> | <img src="https://avatars.githubusercontent.com/u/132319467?v=4" alt="이미지" width="100" height="100"> | <img src="https://avatars.githubusercontent.com/u/164005659?v=4" alt="이미지" width="100" height="100"> |
 
@@ -43,7 +43,4 @@
 | 10주차 (06월 01일) ||||
 | 11주차 (06월 08일) ||||
 
-## 주차별 정리
-
-
-  
+<img src="goodsay.png" alt="이미지" width="300" height="300" />
