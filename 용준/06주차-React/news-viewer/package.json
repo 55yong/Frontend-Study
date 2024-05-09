@@ -9,7 +9,9 @@
     "axios": "^1.6.8",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.0",
     "react-scripts": "5.0.1",
+    "styled-components": "^6.1.10",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
