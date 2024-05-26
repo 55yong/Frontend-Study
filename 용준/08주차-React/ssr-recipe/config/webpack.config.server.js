@@ -18,7 +18,7 @@ module.exports = {
   output: {
     path: paths.ssrBuild,
     filename: "server.js",
-    libraryTarget: "js/[name].chunk.js",
+    chunkFilename: "js/[name].chunk.js",
     publicPath: paths.publicUrlOrPath,
   },
   module: {
@@ -47,7 +47,8 @@ module.exports = {
                   {
                     loaderMap: {
                       svg: {
-                        ReactComponent: "@svgr/webpack?-prettier,-svgo![path]",
+                        ReactComponent:
+                          "@svgr/webpack?-svgo,+titleProp,+ref![path]",
                       },
                     },
                   },
@@ -83,15 +84,19 @@ module.exports = {
           {
             test: sassRegex,
             exclude: sassModuleRegex,
-            loader: require.resolve("css-loader"),
-            options: {
-              importLoaders: 3,
-              modules: {
-                exportOnlyLocals: true,
+            use: [
+              {
+                loader: require.resolve("css-loader"),
+                options: {
+                  importLoaders: 3,
+                  modules: {
+                    exportOnlyLocals: true,
+                  },
+                },
               },
-            },
+              require.resolve("sass-loader"),
+            ],
           },
-          require.resolve("sass-loader"),
           {
             test: sassRegex,
             exclude: sassModuleRegex,
@@ -110,7 +115,7 @@ module.exports = {
             ],
           },
           {
-            test: [/\bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
             loader: require.resolve("resolve-url-loader"),
             options: {
               emitFile: false,
