@@ -1,0 +1,1 @@
+"use strict";exports.id=307,exports.ids=[307],exports.modules={351:(s,e,t)=>{t.r(e),t.d(e,{default:()=>o});var d=t(732);const r=()=>(0,d.jsx)("div",{children:"Hello React!"}),o=()=>(0,d.jsx)(r,{})}};
