@@ -1,16 +1,20 @@
 import ReactDOMServer from "react-dom/server";
 import express from "express";
 import { StaticRouter } from "react-router-dom/server";
-
 import App from "./App";
 import path from "path";
 import fs from "fs";
+import { legacy_createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import { thunk } from "redux-thunk";
+import rootReducer from "./modules";
+import PreloadContext from "./lib/PreloadContext";
 
 const manifest = JSON.parse(
   fs.readFileSync(path.resolve("./build/asset-manifest.json"), "utf-8")
 );
 
-function createPage(root) {
+function createPage(root, stateScript) {
   return `
     <!DOCTYPE html>
     <html lang="en">
@@ -25,6 +29,7 @@ function createPage(root) {
       <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root">${root}</div>
+        ${stateScript}
         <script src="${manifest.files["main.js"]}"></script>
       </body>
     </html>;
@@ -33,17 +38,39 @@ function createPage(root) {
 
 const app = express();
 
-const serverRender = (req, res, next) => {
+const serverRender = async (req, res, next) => {
   const context = {};
 
+  const store = legacy_createStore(rootReducer, applyMiddleware(thunk));
+
+  const preloadContext = {
+    done: false,
+    promises: [],
+  };
+
   const jsx = (
-    <StaticRouter location={req.url} context={context}>
-      <App />
-    </StaticRouter>
+    <PreloadContext.Provider value={preloadContext}>
+      <Provider store={store}>
+        <StaticRouter location={req.url} context={context}>
+          <App />
+        </StaticRouter>
+      </Provider>
+    </PreloadContext.Provider>
   );
 
+  ReactDOMServer.renderToStaticMarkup(jsx);
+  try {
+    await Promise.all(PreloadContext.promises);
+  } catch (e) {
+    return res.status(500);
+  }
+  PreloadContext.done = true;
+
   const root = ReactDOMServer.renderToString(jsx);
-  res.send(createPage(root));
+  const stateString = JSON.stringify(store.getState()).replace(/</g, "\\u003c");
+  const stateScript = `<script>__PRELOADED_STATE__ = ${stateString}</script>`;
+
+  res.send(createPage(root, stateScript));
 };
 
 const serve = express.static(path.resolve("./build"), {
