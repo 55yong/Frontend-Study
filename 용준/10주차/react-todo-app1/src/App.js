@@ -9,7 +9,6 @@ const initialTodoData = localStorage.getItem("todoData")
 
 export default function App() {
   console.log("App is Rendering");
-
   const [todoData, setTodoData] = useState(initialTodoData);
   const [value, setValue] = useState("");
 
@@ -29,7 +28,9 @@ export default function App() {
 
   const handleClick = useCallback(
     (id) => {
+      console.log("List is Rendering");
       let newTodoData = todoData.filter((data) => data.id !== id);
+      console.log("newTodoData", newTodoData);
       setTodoData(newTodoData);
       localStorage.setItem("todoData", JSON.stringify(newTodoData));
     },
@@ -53,7 +54,7 @@ export default function App() {
           setTodoData={setTodoData}
           handleClick={handleClick}
         />
-        <Form handleSubmit={handleSubmit} value={value} setValue={setValue} />
+        <Form value={value} setValue={setValue} handleSubmit={handleSubmit} />
       </div>
     </div>
   );
