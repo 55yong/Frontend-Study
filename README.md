@@ -3,8 +3,8 @@
                 
 ## 참여 인원 
 | [홍가영](https://github.com/kaouo) | [오용준<스터디장>](https://github.com/55yong) | [이승헌](https://github.com/12seungheon) |
-|----|----|----|
-| <img src="https://avatars.githubusercontent.com/u/144293040?v=4" alt="이미지" width="150" height="150"> | <img src="https://avatars.githubusercontent.com/u/132319467?v=4" alt="이미지" width="150" height="150"> | <img src="https://avatars.githubusercontent.com/u/164005659?v=4" alt="이미지" width="150" height="150"> |
+|:-:|:-:|:-:|
+| ![가영](https://avatars.githubusercontent.com/u/144293040?v=4) | ![용준](https://avatars.githubusercontent.com/u/132319467?v=4) | ![승헌](https://avatars.githubusercontent.com/u/164005659?v=4) |
 
 ## 스케줄표(스프레드시트)
 - [스케줄표](https://docs.google.com/spreadsheets/d/1XuaLa4wmp7Enq5g93WkmWvLEb5FaILLZ05e7wOrMrSs/edit#gid=0)
