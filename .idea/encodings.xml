@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/용준/11주차/dockerfile-folder/dockerfile" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/용준/11주차/react-button-app/.gitignore" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/용준/11주차/react-todo-app/Dockerfile" charset="UTF-8" />
   </component>
 </project>
