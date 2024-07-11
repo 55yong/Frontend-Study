@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/용준/11주차/nextjs-app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/용준/11주차/react-redux-app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/용준/11주차/react-redux-toolkit" vcs="Git" />
+  </component>
+</project>
