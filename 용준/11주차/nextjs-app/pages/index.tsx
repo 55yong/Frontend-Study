@@ -1,9 +1,9 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import { GetStaticProps } from "next";
-import { getSortedPostsData } from "../lib/posts";
+import { getSortedPostsData } from "@/lib/posts";
 import homeStyles from "@/styles/Home.module.css";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +17,7 @@ export default function Home({
   }[];
 }) {
   return (
-    <div>
+    <div className={homeStyles.container}>
       <Head>
         <title>55yong</title>
       </Head>
@@ -30,7 +30,7 @@ export default function Home({
         <ul className={homeStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={homeStyles.listItem} key={id}>
-              <a>{title}</a>
+              <Link href={`/posts/${id}`}>{title}</Link>
               <br />
               <small className={homeStyles.lightText}>{date}</small>
             </li>
